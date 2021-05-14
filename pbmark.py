@@ -14,7 +14,7 @@ scoring_criteria={}
 scores=[i for i in range (1,201)];c=0
 for i in range(200,0,-1):
     scoring_criteria[scores[c]]=i; c+=1
-print(raw_score)
+
 print(scoring_criteria)
 pc_score=scoring_criteria[raw_score]
 print(f"Your pc scored {pc_score/2} points out of 100 ! ")

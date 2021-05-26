@@ -1,9 +1,8 @@
 # pybmark : The Python Benchmark
 
-## Simple benchmark tool using python
+## Simple Dual-test Cross-compatible Python/PyPy benchmark tool 
 
- Will be made better soon 
-
+### *WOuld be made better soon*
 
 >Made with Love™ ❤️
 >by Karthik Nair \

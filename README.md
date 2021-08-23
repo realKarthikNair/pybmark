@@ -8,7 +8,9 @@
 >Made with Love™ ❤️
 
 >by Karthik Nair 
+<br>
 
->http://instagr.am/harry_kris 
+[instagram ](https://www.instagram.com/harry_kris_) <br>
+[twitter](https://www.twitter.com/realkarthiknair)
 
->http://twitter.com/RealKarthikNair
+

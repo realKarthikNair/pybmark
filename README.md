@@ -1,4 +1,4 @@
-# pybmark : The Python Benchmark
+# pybmark : The PC CPU Benchmarking Tool Made using Python3
 
 ## Simple Dual-test Cross-compatible Python/PyPy benchmark tool 
 

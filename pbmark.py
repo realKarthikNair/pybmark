@@ -8,15 +8,18 @@ so basically our benchmarking script tries to
 do 0|1|2|3|4|5|6|7|8..... upto 99998 
 """
 flag=False
-print("<<<Welcome to PyBMark 1.0>>>")
-if platform.python_implementation()!="CPython":
-    if platform.python_implementation()=="PyPy":
-        flag=True
-        print("Detected PyPy implementation, to ensure fare results, time taken by your computer would be multipled by 6")
+print("<<<Welcome to PyBMark 1.5>>>")
+
+def check_platform():
+    if platform.python_implementation()!="CPython":
+        if platform.python_implementation()=="PyPy":
+            return "PyPy"
     else:
-        print("Detected Jython or ipython, \nProgram is currently optimized only for Cpython and Pypy\n Results shoudn't be used for comparison ! ")
+        return True
+            
+
     
-bmark_script='"|".join(str(i) for i in range(99999))'
+bmark_script='''"|".join(str(i) for i in range(99999))'''
 
 
 print("Running CPU Benchmark.... ")
@@ -48,7 +51,7 @@ raw_score=raw_score0+raw_score1
 
 """
 Kept expected base+end points to make the code less complicated
-This way , the slowest pc would take 300 seconds and
+This way , the slowest pc would take 400 seconds and
 the fastest pc would take one second 
 """
 if raw_score>400:raw_score=400
@@ -63,18 +66,22 @@ for i in range(400,0,-1):
     scoring_criteria[scores[c]]=i; c+=1
     
     
+
+flag=check_platform()
+
 print("<<<BENCHMARK REPORT>>>\n")
 
-if flag!=True:
+if flag==True:
     print("Your computer took ",raw_score," seconds to do the operations. \nThe slowest relevant computer is expected to take 400 seconds\nand the fastest computer is expected to take 1 second ! ")
-else:
+elif flag=="PyPy":
+    print("Detected PyPy implementation")
     print("Your computer took ",raw_score," seconds to do the operations.\nThe slowest relevant computer is expected to take 400 seconds\nand the fastest computer is expected to take 1 second ! ")
-    print("\nBut since PyPy was used, time taken would be converted to 6 times of the actual taken time ")
+    print("\nBut since PyPy was used, to ensure fairness, time taken would be converted to 6 times of the actual taken time ")
     raw_score=int(raw_score*6)
-    print("\nNet time is ",raw_score)
+else:
+    print("Detected a python implementation other than Cpython and PyPy, \nProgram is currently optimized only for Cpython and Pypy\n Results shoudn't be used for comparison ! ")
+print("\nNet time is ",raw_score)
     
-   
-
 
 pc_score=scoring_criteria[raw_score]
 print(f"\nYour pc scored {round(pc_score/4,2)} points out of 100 ! ")

@@ -7,7 +7,7 @@ import timeit,platform # timeit measures execution time of given code snippet(s)
 so basically our benchmarking script tries to
 do 0|1|2|3|4|5|6|7|8..... upto 99998 
 """
-flag=False
+
 print("<<<Welcome to PyBMark 1.5>>>")
 
 def check_platform():
